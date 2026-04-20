@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-group-manager",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Strapi plugin to organise collections and components into named, colour coded groups in the admin panel.",
   "keywords": [
     "strapi",
@@ -21,11 +21,11 @@
     "url": "https://github.com/sc0des/strapi-plugin-group-manager.git"
   },
   "license": "MIT",
-  "author": { 
+  "author": {
     "name": "@sc0des",
     "url": "https://github.com/sc0des"
   },
-  "type": "commonjs", 
+  "type": "commonjs",
   "exports": {
     "./package.json": "./package.json",
     "./strapi-admin": {
@@ -82,8 +82,12 @@
     "styled-components": ">=6.0.0"
   },
   "peerDependenciesMeta": {
-    "@strapi/design-system": { "optional": true },
-    "@strapi/icons": { "optional": true }
+    "@strapi/design-system": {
+      "optional": true
+    },
+    "@strapi/icons": {
+      "optional": true
+    }
   },
   "strapi": {
     "kind": "plugin",
