@@ -1,0 +1,93 @@
+{
+  "name": "strapi-plugin-group-manager",
+  "version": "1.0.0",
+  "description": "A Strapi plugin to organise collections and components into named, colour coded groups in the admin panel.",
+  "keywords": [
+    "strapi",
+    "strapi-plugin",
+    "strapi-v5",
+    "strapi5",
+    "group-manager",
+    "content-type-groups",
+    "admin-panel",
+    "organisation"
+  ],
+  "homepage": "https://github.com/sc0des/strapi-plugin-group-manager#readme",
+  "bugs": {
+    "url": "https://github.com/sc0des/strapi-plugin-group-manager/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sc0des/strapi-plugin-group-manager.git"
+  },
+  "license": "MIT",
+  "author": { 
+    "name": "@sc0des",
+    "url": "https://github.com/sc0des"
+  },
+  "type": "commonjs", 
+  "exports": {
+    "./package.json": "./package.json",
+    "./strapi-admin": {
+      "types": "./dist/admin/src/index.d.ts",
+      "source": "./admin/src/index.ts",
+      "import": "./dist/admin/index.mjs",
+      "require": "./dist/admin/index.js",
+      "default": "./dist/admin/index.js"
+    },
+    "./strapi-server": {
+      "types": "./dist/server/src/index.d.ts",
+      "source": "./server/src/index.ts",
+      "import": "./dist/server/index.mjs",
+      "require": "./dist/server/index.js",
+      "default": "./dist/server/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "strapi-plugin build",
+    "watch": "strapi-plugin watch",
+    "watch:link": "strapi-plugin watch:link",
+    "verify": "strapi-plugin verify",
+    "test:ts:front": "run -T tsc -p admin/tsconfig.json",
+    "test:ts:back": "run -T tsc -p server/tsconfig.json"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@strapi/strapi": "^5.42.0",
+    "@strapi/sdk-plugin": "^6.0.1",
+    "prettier": "^3.8.2",
+    "@strapi/design-system": "^2.0.0-rc.30",
+    "@strapi/icons": "^2.0.0-rc.30",
+    "react-intl": "^6.8.9",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.3",
+    "styled-components": "^6.4.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@strapi/typescript-utils": "^5.42.0",
+    "typescript": "^6.0.2"
+  },
+  "peerDependencies": {
+    "@strapi/strapi": "^5.42.0",
+    "@strapi/sdk-plugin": "^6.0.1",
+    "@strapi/design-system": "^2.0.0-rc.30",
+    "@strapi/icons": "^2.0.0-rc.30",
+    "react-intl": "^6.8.9",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.3",
+    "styled-components": "^6.4.0"
+  },
+  "strapi": {
+    "kind": "plugin",
+    "name": "group-manager",
+    "displayName": "Group Manager",
+    "description": "A Strapi plugin to organise collections and components into named, colour coded groups."
+  }
+}

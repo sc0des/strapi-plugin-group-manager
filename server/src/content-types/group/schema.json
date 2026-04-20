@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "group_manager_groups",
+  "info": {
+    "singularName": "group",
+    "pluralName": "groups",
+    "displayName": "Group"
+  },
+  "options": { "draftAndPublish": false },
+  "pluginOptions": {
+    "content-manager": { "visible": false },
+    "content-type-builder": { "visible": false }
+  },
+  "attributes": {
+    "name":            { "type": "string", "required": true, "unique": true },
+    "color":           { "type": "string", "default": "#4945FF" },
+    "icon":            { "type": "string", "default": "folder" },
+    "collectionTypes": { "type": "json",   "default": [] },
+    "components":      { "type": "json",   "default": [] },
+    "order":           { "type": "integer","default": 0 }
+  }
+}
