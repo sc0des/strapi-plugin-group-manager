@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-group-manager",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Strapi plugin to organise collections and components into named, colour coded groups in the admin panel.",
   "keywords": [
     "strapi",
@@ -21,11 +21,11 @@
     "url": "https://github.com/sc0des/strapi-plugin-group-manager.git"
   },
   "license": "MIT",
-  "author": { 
+  "author": {
     "name": "@sc0des",
     "url": "https://github.com/sc0des"
   },
-  "type": "commonjs", 
+  "type": "commonjs",
   "exports": {
     "./package.json": "./package.json",
     "./strapi-admin": {
@@ -58,32 +58,38 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@strapi/strapi": "^5.42.0",
-    "@strapi/sdk-plugin": "^6.0.1",
-    "prettier": "^3.8.2",
-    "@strapi/design-system": "^2.0.0-rc.30",
-    "@strapi/icons": "^2.0.0-rc.30",
-    "react-intl": "^6.8.9",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.30.3",
-    "styled-components": "^6.4.0",
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
-    "@strapi/typescript-utils": "^5.42.0",
-    "typescript": "^6.0.2"
+  "@strapi/strapi": "^5.33.0",
+  "@strapi/sdk-plugin": "^6.0.1",
+  "prettier": "^3.8.2",
+  "@strapi/design-system": "^2.0.0-rc.30",
+  "@strapi/icons": "^2.0.0-rc.30",
+  "react-intl": "^6.8.9",
+  "react": "^18.0.0",
+  "react-dom": "^18.0.0",
+  "react-router-dom": "^6.0.0",
+  "styled-components": "^6.0.0",
+  "@types/react": "^18",
+  "@types/react-dom": "^18",
+  "@strapi/typescript-utils": "^5.33.0",
+  "typescript": "^5"
   },
   "peerDependencies": {
-    "@strapi/strapi": ">=5.33.0",
-    "react": ">=18.0.0",
-    "react-dom": ">=18.0.0",
-    "react-router-dom": ">=6.0.0",
-    "react-intl": ">=6.0.0",
-    "styled-components": ">=6.0.0"
+  "@strapi/strapi": ">=5.33.0",
+  "react": ">=18.0.0",
+  "react-dom": ">=18.0.0",
+  "react-router-dom": ">=6.0.0",
+  "styled-components": ">=6.0.0"
   },
   "peerDependenciesMeta": {
-    "@strapi/design-system": { "optional": true },
-    "@strapi/icons": { "optional": true }
+    "@strapi/design-system": {
+      "optional": true
+    },
+    "@strapi/icons": {
+      "optional": true
+    },
+    "react-intl": {
+       "optional": true 
+    }
   },
   "strapi": {
     "kind": "plugin",
