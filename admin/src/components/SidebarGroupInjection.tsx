@@ -58,7 +58,8 @@ export const SidebarGroupInjection = () => {
 
   const handleNavigate = (uid: string, type: 'collection' | 'component') => {
     if (type === 'collection') {
-      navigate(`/content-manager/collection-types/${uid}`);
+      const ct = availableItems.collectionTypes.find((c) => c.uid === uid);
+      navigate(`/content-manager/${ct?.kind === 'singleType' ? 'single' : 'collection'}-types/${uid}`);
     } else {
       const comp = availableItems.components.find((c) => c.uid === uid);
       if (!comp?.category) return;

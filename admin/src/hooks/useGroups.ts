@@ -14,6 +14,7 @@ export interface Group {
 
 export interface AvailableItem {
   uid: string;
+  kind?: 'collectionType' | 'singleType';
   displayName: string;
   singularName?: string;
   pluralName?: string;

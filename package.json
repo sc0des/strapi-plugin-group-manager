@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-group-manager",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A Strapi plugin to organise collections and components into named, colour coded groups in the admin panel.",
   "keywords": [
     "strapi",
