@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-group-manager",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A Strapi plugin to organise collections and components into named, colour coded groups in the admin panel.",
   "keywords": [
     "strapi",
@@ -58,27 +58,27 @@
   },
   "dependencies": {},
   "devDependencies": {
-  "@strapi/strapi": "^5.33.0",
-  "@strapi/sdk-plugin": "^6.0.1",
-  "prettier": "^3.8.2",
-  "@strapi/design-system": "^2.0.0-rc.30",
-  "@strapi/icons": "^2.0.0-rc.30",
-  "react-intl": "^6.8.9",
-  "react": "^18.0.0",
-  "react-dom": "^18.0.0",
-  "react-router-dom": "^6.0.0",
-  "styled-components": "^6.0.0",
-  "@types/react": "^18",
-  "@types/react-dom": "^18",
-  "@strapi/typescript-utils": "^5.33.0",
-  "typescript": "^5"
+    "@strapi/strapi": "^5.33.0",
+    "@strapi/sdk-plugin": "^6.0.1",
+    "prettier": "^3.8.2",
+    "@strapi/design-system": "^2.0.0-rc.30",
+    "@strapi/icons": "^2.0.0-rc.30",
+    "react-intl": "^6.8.9",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.0.0",
+    "styled-components": "^6.0.0",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@strapi/typescript-utils": "^5.33.0",
+    "typescript": "^5"
   },
   "peerDependencies": {
-  "@strapi/strapi": ">=5.33.0",
-  "react": ">=18.0.0",
-  "react-dom": ">=18.0.0",
-  "react-router-dom": ">=6.0.0",
-  "styled-components": ">=6.0.0"
+    "@strapi/strapi": ">=5.33.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
+    "react-router-dom": ">=6.0.0",
+    "styled-components": ">=6.0.0"
   },
   "peerDependenciesMeta": {
     "@strapi/design-system": {
@@ -88,7 +88,7 @@
       "optional": true
     },
     "react-intl": {
-       "optional": true 
+      "optional": true
     }
   },
   "strapi": {

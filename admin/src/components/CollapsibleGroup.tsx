@@ -27,7 +27,7 @@ const getLabel = (uid: string, availableItems: AvailableItems): string => {
 
 const getNavPath = (uid: string, availableItems: AvailableItems): string => {
   const ct = availableItems.collectionTypes.find((c) => c.uid === uid);
-  if (ct) return `/content-manager/collection-types/${uid}`;
+  if (ct) return `/content-manager/${ct.kind === 'singleType' ? 'single' : 'collection'}-types/${uid}`;
   const comp = availableItems.components.find((c) => c.uid === uid);
   if (comp) return `/content-type-builder/component-categories/${comp.category}`;
   return '/';

@@ -1,13 +1,13 @@
 # Group Manager Strapi Plugin
 
-A **Strapi** plugin that lets you organise your collections and components into named, colour coded groups in a dedicated admin panel page.
+A **Strapi** plugin that lets you organise your collection types, single types and components into named, colour coded groups in a dedicated admin panel page.
 
 ---
 
 ## Features
 
 - Create named groups with a custom colour and icon
-- Assign any collection type or component to a group
+- Assign any collection type, single type or component to a group
 - Fine grained role permissions (read, create, update, delete)
 
 ## Preview
@@ -60,7 +60,7 @@ npm run develop
 1. Open the Strapi admin panel.
 2. Navigate to **Group Manager** in the left sidebar.
 3. Click **Create group** to add a new group, give it a name, colour, and icon.
-4. Use the **Assign** button on each group to add collection types or components.
+4. Use the **Assign** button on each group to add collection types, single types or components.
 
 ---
 
