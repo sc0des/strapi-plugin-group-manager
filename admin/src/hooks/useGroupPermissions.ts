@@ -33,8 +33,8 @@ export const useGroupPermissions = (): GroupPermissions => {
   const [perms, setPerms] = useState<GroupPermissions>({ ...DENIED, isLoading: true });
 
   useEffect(() => {
-    post('/admin/permissions/check', { permissions: PERMISSIONS_TO_CHECK })
-      .then(({ data }: { data: { data: boolean[] } }) => {
+    post<{ data: boolean[] }>('/admin/permissions/check', { permissions: PERMISSIONS_TO_CHECK })
+      .then(({ data }) => {
         const [canAccess, canRead, canCreate, canUpdate, canDelete] = data.data ?? [];
         setPerms({
           canAccess:  canAccess  ?? false,

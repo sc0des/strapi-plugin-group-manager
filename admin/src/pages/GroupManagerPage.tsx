@@ -173,7 +173,8 @@ const GroupManagerPageInner: React.FC = () => {
   const handleSelectItem = useCallback(
     (uid: string, type: 'collection' | 'component') => {
       if (type === 'collection') {
-        navigate(`/content-manager/collection-types/${uid}`);
+        const ct = availableItems?.collectionTypes?.find((c) => c.uid === uid);
+        navigate(`/content-manager/${ct?.kind === 'singleType' ? 'single' : 'collection'}-types/${uid}`);
       } else {
         const comp = availableItems?.components?.find((c) => c.uid === uid);
         if (!comp?.category) return;
@@ -508,6 +509,8 @@ const GroupManagerPageInner: React.FC = () => {
                         </Typography>
                       ) : allItems.map(({ uid, type }) => {
                         const isComp = type === 'component';
+                        const isSingle =
+                          availableItems?.collectionTypes?.find((c) => c.uid === uid)?.kind === 'singleType';
                         const label = getLabel(uid);
                         return (
                           <Flex
@@ -517,7 +520,7 @@ const GroupManagerPageInner: React.FC = () => {
                             gap={2}
                             tabIndex={0}
                             title={label}
-                            aria-label={`${isComp ? 'Component' : 'Collection type'}: ${label}`}
+                            aria-label={`${isComp ? 'Component' : isSingle ? 'Single type' : 'Collection type'}: ${label}`}
                             onClick={() => handleSelectItem(uid, type)}
                             onKeyDown={(e: React.KeyboardEvent) => {
                               if (e.key === 'Enter' || e.key === ' ') {
@@ -545,12 +548,14 @@ const GroupManagerPageInner: React.FC = () => {
                               fontSize: 10, fontWeight: 700, letterSpacing: '0.04em',
                               padding: '2px 5px', borderRadius: 3, flexShrink: 0,
                               lineHeight: 1.5,
-                              color: isComp ? '#C17FFF' : '#6EB3D9',
+                              color: isComp ? '#C17FFF' : isSingle ? '#6FCF97' : '#6EB3D9',
                               background: isComp
                                 ? 'rgba(193,127,255,0.15)'
-                                : 'rgba(110,179,217,0.15)',
+                                : isSingle
+                                  ? 'rgba(111,207,151,0.15)'
+                                  : 'rgba(110,179,217,0.15)',
                             }}>
-                              {isComp ? 'COMP' : 'CT'}
+                              {isComp ? 'COMP' : isSingle ? 'ST' : 'CT'}
                             </span>
                             <Typography style={{
                               fontSize: 14,

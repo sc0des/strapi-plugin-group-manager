@@ -14,6 +14,7 @@ export interface Group {
 
 export interface AvailableItem {
   uid: string;
+  kind?: 'collectionType' | 'singleType';
   displayName: string;
   singularName?: string;
   pluralName?: string;
@@ -37,7 +38,7 @@ export const useGroups = () => {
 
   const fetchGroups = useCallback(async () => {
     try {
-      const { data } = await get(`/group-manager/groups`);
+      const { data } = await get<Group[]>(`/group-manager/groups`);
       setGroups(data || []);
     } catch (err: any) {
       setError(err?.message || 'Failed to fetch groups');
@@ -46,7 +47,7 @@ export const useGroups = () => {
 
   const fetchAvailableItems = useCallback(async () => {
     try {
-      const { data } = await get(`/group-manager/groups/available-items`);
+      const { data } = await get<AvailableItems>(`/group-manager/groups/available-items`);
       setAvailableItems(data || { collectionTypes: [], components: [] });
     } catch (err: any) {
       setError(err?.message || 'Failed to fetch available items');

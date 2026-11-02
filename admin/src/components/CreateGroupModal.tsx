@@ -45,8 +45,15 @@ export const CreateGroupModal = ({
   const [name, setName] = useState(existingGroup?.name || '');
   const [color, setColor] = useState(existingGroup?.color || '#4945FF');
   const [icon, setIcon] = useState(existingGroup?.icon || 'folder');
+  const isSingle = (uid: string) =>
+    availableItems.collectionTypes.find((c) => c.uid === uid)?.kind === 'singleType';
+  const collectionItems = availableItems.collectionTypes.filter((c) => c.kind !== 'singleType');
+  const singleItems = availableItems.collectionTypes.filter((c) => c.kind === 'singleType');
   const [selectedCollections, setSelectedCollections] = useState<string[]>(
-    existingGroup?.collectionTypes || []
+    (existingGroup?.collectionTypes || []).filter((uid) => !isSingle(uid))
+  );
+  const [selectedSingles, setSelectedSingles] = useState<string[]>(
+    (existingGroup?.collectionTypes || []).filter(isSingle)
   );
   const [selectedComponents, setSelectedComponents] = useState<string[]>(
     existingGroup?.components || []
@@ -66,7 +73,7 @@ export const CreateGroupModal = ({
         name: name.trim(),
         color,
         icon,
-        collectionTypes: selectedCollections,
+        collectionTypes: [...selectedCollections, ...selectedSingles],
         components: selectedComponents,
         order: existingGroup?.order || 0,
       });
@@ -215,7 +222,24 @@ export const CreateGroupModal = ({
                     >
                       Collection Types
                       <span style={{ marginLeft: 6, color: 'var(--neutral500)' }}>
-                        ({availableItems.collectionTypes.length})
+                        ({collectionItems.length})
+                      </span>
+                    </Tabs.Trigger>
+
+                    <Tabs.Trigger
+                      value="singles"
+                      style={{
+                        padding: '10px 0',
+                        background: 'transparent',
+                        border: 'none',
+                        borderBottom: '2px solid transparent',
+                        color: 'var(--neutral600)',
+                        fontWeight: 500,
+                      }}
+                    >
+                      Single Types
+                      <span style={{ marginLeft: 6, color: 'var(--neutral500)' }}>
+                        ({singleItems.length})
                       </span>
                     </Tabs.Trigger>
 
@@ -251,7 +275,28 @@ export const CreateGroupModal = ({
                             onChange={(val: string[]) => setSelectedCollections(val)}
                             withTags
                           >
-                          {availableItems.collectionTypes.map((ct: AvailableItem) => (
+                          {collectionItems.map((ct: AvailableItem) => (
+                            <MultiSelectOption key={ct.uid} value={ct.uid}>
+                              {ct.displayName}
+                            </MultiSelectOption>
+                          ))}
+                          </MultiSelect>
+                        </Field.Root>
+                      </Box>
+                    </Tabs.Content>
+
+                    {/* SINGLE TYPES */}
+                    <Tabs.Content value="singles">
+                      <Box paddingTop={2} style={{ width: '100%' }}>
+                        <Field.Root>
+                          <Field.Label>Single Types</Field.Label>
+                          <MultiSelect
+                            placeholder="Search & select single types..."
+                            value={selectedSingles}
+                            onChange={(val: string[]) => setSelectedSingles(val)}
+                            withTags
+                          >
+                          {singleItems.map((ct: AvailableItem) => (
                             <MultiSelectOption key={ct.uid} value={ct.uid}>
                               {ct.displayName}
                             </MultiSelectOption>
