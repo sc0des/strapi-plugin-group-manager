@@ -1,4 +1,3 @@
-import service from './service';
-import group from './group';      // ← make sure this is here
+import group from './group';
 
-export default { service, group };
+export default { group };

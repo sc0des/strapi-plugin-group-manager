@@ -37,9 +37,10 @@ const groupController = ({ strapi }: { strapi: Core.Strapi }) => ({
 
   async getAvailableItems(ctx: any) {
     const collectionTypes = Object.values(strapi.contentTypes)
-      .filter((ct: any) => ct.kind === 'collectionType' && !ct.plugin)
+      .filter((ct: any) => (ct.kind === 'collectionType' || ct.kind === 'singleType') && !ct.plugin)
       .map((ct: any) => ({
         uid: ct.uid,
+        kind: ct.kind,
         displayName: ct.info?.displayName || ct.uid,
         singularName: ct.info?.singularName,
         pluralName: ct.info?.pluralName,
